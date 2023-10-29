@@ -8,7 +8,7 @@
         }
         stage('Build Maven Project') {
             steps {
-                sh 'mvn clean install -DskipTests'
+                sh 'mvn clean install'
             }
         }
     }
