@@ -1,5 +1,6 @@
 package driver
 import common.CommonUtilities._
+import common.Constants.linkList
 import org.apache.commons._
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.functions._
@@ -8,9 +9,9 @@ object driver extends App {
 
   val sparkSession=getSparkSession
 
-//  for (gsPath<-linkList){
+  for (gsPath<-linkList){
 
-    val gsPath="file:///home/kunal/agriculture_data/2023-09-05/Ajwan/Ajwan_01-Jan-2013_31-Aug-2023.csv"
+//    val gsPath="file:///home/kunal/agriculture_data/2023-09-05/Ajwan/Ajwan_01-Jan-2013_31-Aug-2023.csv"
 
     val sourceDf:DataFrame=QualityDataFrame(gsPath)
 
@@ -72,16 +73,6 @@ object driver extends App {
         .option("temporaryGcsBucket", "bigquerytabletemp")
         .option("table", "agriculture-data-analytics.agri_data_model.dim_state")
         .save()
-
-
-
-
-
-//  }
-
-
-
-
-
+  }
 
 }
