@@ -64,10 +64,7 @@ object driver extends App {
 
 
       val tableName:String="agriculture-data-analytics.agri_data_model.dim_state"
-
-
-      dimState.printSchema()
-
+    
       dimState.write.format("bigquery")
         .mode("append")
         .option("temporaryGcsBucket", "bigquerytabletemp")
